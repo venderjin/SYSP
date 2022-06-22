@@ -92,3 +92,22 @@ printf ("%s",
 67 if (S_ISSOCK(mode))
 68 return('s');
 69 }
+
+
+
+71 /*
+파일 사용권한을 리턴
+72 char* perm(mode_t mode) {
+73 int i;
+74 static char perms[10] = "
+75
+76 for (i=0; i < 3; i++) {
+77 if (mode & (S_IREAD >> i*3))
+78 perms[i*3] = 'r';
+79 if (mode & (S_IWRITE >> i*3))
+80 perms[i*3+1] = 'w';
+81 if (mode & (S_IEXEC >> i*3))
+82 perms[i*3+2] = 'x';
+83 }
+84 return(perms);
+85 }
