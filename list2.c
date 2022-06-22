@@ -49,3 +49,46 @@ putchar n');
 closedir dp
 37 exit(0);
 38 }
+
+40 /*
+파일 상태 정보를 출력
+41 void
+printStat (char *pathname, char *file, struct stat * st )
+42
+43
+printf ("%5d ", st st_blocks
+44
+printf c%s ", st st_mode ), st st_mode
+45
+printf ("%3d ", st st_nlink
+46
+printf ("%s %s ", getpwuid st st_uid pw_name
+getgrgid
+st st_gid gr_name
+47
+printf ("%9d ", st st_size
+48
+printf ("%.12s ", ctime st st_mtime )+
+49
+printf ("%s",
+50 }
+
+52 /*
+파일 타입을 리턴
+53 char type(mode_t mode) {
+54
+55 if (S_ISREG(mode))
+56 return('
+57 if (S_ISDIR(mode))
+58 return('d');
+59 if (S_ISCHR(mode))
+60 return('c');
+61 if (S_ISBLK(mode))
+62 return('b');
+63 if (S_ISLNK(mode))
+64 return('l');
+65 if (S_ISFIFO(mode))
+66 return('p');
+67 if (S_ISSOCK(mode))
+68 return('s');
+69 }
